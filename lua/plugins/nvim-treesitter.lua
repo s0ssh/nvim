@@ -11,7 +11,7 @@ return {
 	config = function()
 		require('nvim-treesitter.configs').setup {
 			ensure_installed = {
-				'c', 'rust', 'lua'
+				'c', 'rust', 'lua', 'markdown', 'verilog'
 			},
 			sync_install = false,
 			auto_install = true,
