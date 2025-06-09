@@ -41,7 +41,7 @@ local function set_options()
 		termguicolors	= true,
 		swapfile		= false,
 		backup			= false,
-		undodir			= os.getenv('HOME') .. '/.nvim/undodir',
+		undodir			= os.getenv('APPDATA') .. '/.nvim/undodir',
 		undofile		= true,
 		scrolloff		= 8,
 		colorcolumn		= '100'
@@ -98,8 +98,10 @@ local function set_mappings()
 		{'n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true }},
 
 		-- Telescope mappings
-		{'n', '<c-space>', '<cmd>Telescope find_files<CR>', opts},
-		{'v', '<c-space>', '<cmd>Telescope find_files<CR>', opts},
+		{'n', '<c-f>', '<cmd>Telescope find_files<CR>', opts},
+		{'v', '<c-f>', '<cmd>Telescope find_files<CR>', opts},
+		{'n', '<c-g>', '<cmd>Telescope live_grep<CR>', opts},
+		{'v', '<c-g>', '<cmd>Telescope live_grep<CR>', opts},
 
 		-- nvim-tree mappings
 		{'n', '<c-a>', '<cmd>NvimTreeToggle<CR>', opts},
