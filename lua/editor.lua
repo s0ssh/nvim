@@ -18,6 +18,7 @@ local function set_globals()
 	for key, val in pairs(globals) do
 		g[key] = val
 	end
+
 end
 
 
@@ -41,8 +42,6 @@ local function set_options()
 		termguicolors	= true,
 		swapfile		= false,
 		backup			= false,
-		undodir			= os.getenv('APPDATA') .. '/.nvim/undodir',
-		undofile		= true,
 		scrolloff		= 8,
 		colorcolumn		= '100'
 	}
@@ -160,8 +159,31 @@ local function set_autocmds()
 	})
 end
 
+--> set anything platform-specific
+local function set_platformspecific()
+	local homedir = ''
+
+	if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
+		-- Windows OS
+		homedir = os.getenv('APPDATA')
+	else
+		-- non-Windows OS
+		homedir = os.getenv('HOME')
+	end
+
+	options = {
+		undofile = true,
+		undodir = homedir .. '/.nvim/undodir'
+	}
+	
+	for key, val in pairs(options) do
+		opt[key] = val
+	end
+end
+
 
 set_globals()
 set_options()
 set_mappings()
 set_autocmds()
+set_platformspecific()
