@@ -97,32 +97,20 @@ local function set_mappings()
 		{'n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true }},
 
 		-- Telescope mappings
-		{'n', '<c-f>', '<cmd>Telescope find_files<CR>', opts},
-		{'v', '<c-f>', '<cmd>Telescope find_files<CR>', opts},
-		{'n', '<c-g>', '<cmd>Telescope live_grep<CR>', opts},
-		{'v', '<c-g>', '<cmd>Telescope live_grep<CR>', opts},
+		{{'n','v'}, '<c-f>', '<cmd>Telescope find_files<CR>', opts},
+		{{'n','v'}, '<c-g>', '<cmd>Telescope live_grep<CR>', opts},
 
 		-- nvim-tree mappings
-		{'n', '<c-a>', '<cmd>NvimTreeToggle<CR>', opts},
-		{'v', '<c-a>', '<cmd>NvimTreeToggle<CR>', opts},
+		{{'n','v'}, '<c-a>', '<cmd>NvimTreeToggle<CR>', opts},
 
 		-- tagbar mappings
-		{'n', '<c-s>', '<cmd>TagbarToggle<CR>', opts},
-		{'v', '<c-s>', '<cmd>TagbarToggle<CR>', opts},
+		{{'n','v'}, '<c-s>', '<cmd>TagbarToggle<CR>', opts},
 
 		-- disable arrow keys
-	    {'n', '<up>', '<nop>', opts},
-	    {'n', '<down>', '<nop>', opts},
-	    {'n', '<left>', '<nop>', opts},
-	    {'n', '<right>', '<nop>', opts},
-	    {'i', '<up>', '<nop>', opts},
-	    {'i', '<down>', '<nop>', opts},
-	    {'i', '<left>', '<nop>', opts},
-		{'i', '<right>', '<nop>', opts},
-		{'v', '<up>', '<nop>', opts},
-	    {'v', '<down>', '<nop>', opts},
-		{'v', '<left>', '<nop>', opts},
-		{'v', '<right>', '<nop>', opts},
+	    {{'n','i','v'}, '<up>', '<nop>', opts},
+	    {{'n','i','v'}, '<down>', '<nop>', opts},
+	    {{'n','i','v'}, '<left>', '<nop>', opts},
+		{{'n','i','v'}, '<right>', '<nop>', opts},
 
 		-- disable annoying job control
 		{'n', 'c-z', 'nop', opts},
