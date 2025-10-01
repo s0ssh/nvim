@@ -161,15 +161,9 @@ end
 
 --> set anything platform-specific
 local function set_platformspecific()
-	local homedir = ''
+	local homedir = os.getenv('HOME')
 
-	if vim.fn.has('win64') or vim.fn.has('win32') or vim.fn.has('win16') then
-		-- Windows OS
-		homedir = os.getenv('APPDATA')
-	else
-		-- non-Windows OS
-		homedir = os.getenv('HOME')
-	end
+	-- non-Windows OS
 
 	options = {
 		undofile = true,
