@@ -136,6 +136,11 @@ end
 
 --> set autocmds
 local function set_autocmds()
+	api.nvim_create_autocmd({ 'VimEnter', 'UIEnter' }, {
+		-- open nvim-tree by default
+		command = "NvimTreeOpen",
+	})
+
 	api.nvim_create_autocmd('InsertEnter', {
 		-- enable cursorline when entering insert mode
 		command = 'set cursorline',
@@ -149,7 +154,7 @@ local function set_autocmds()
 	api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 		-- enable spellcheck on certain filetypes 
 		pattern	= { '*.txt', '*.md', '*.tex' },
-		command	= 'setlocal spell'
+		command	= 'setlocal spell',
 	})
 
 	api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
